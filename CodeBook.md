@@ -1,4 +1,4 @@
-CODEBOOK.md
+##CODEBOOK of TIDY_DATA.TXT
 
 This is the description of the columns of the "tidy_data" data set, obtained from the process 
 explained in Readme.md and obtainted with the script "run_analysis.R"
@@ -8,6 +8,8 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 The field indicated are number of column, column name, description, type and values for factor fields.	
 															
+
+
 
 1	 subject	      
 	Identifier of subject who carried out the experiment
