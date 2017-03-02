@@ -1,6 +1,6 @@
-##CODEBOOK of TIDY_DATA.TXT
+##CODEBOOK of TIDY_DATA
 
-This is the description of the columns of the "tidy_data" data set, obtained from the process 
+This is the description of the variables ff the "tidy_data" data set, obtained from the process 
 explained in Readme.md and obtainted with the script "run_analysis.R"
 
 The reference data is the proyect "Human Activity Recognition Using Smartphones Data Set" 
