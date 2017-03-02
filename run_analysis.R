@@ -18,26 +18,28 @@ library(dplyr)
   subject_test <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep = "", header = FALSE)
 
   #Step 1) Merges the training and the test sets to create one data set.
-  #union of both by rows dim(7352+2947,561) ->(10299,561)
+  	#The datasets of training and test, activities and subjects are joined making an union by row (rbind)
+	#union of both by rows dim(7352+2947,561) ->(10299,561)
   all_sets <- rbind(training_sets, test_sets)
   activities_labels <- rbind(training_labels, test_labels)
   subjects <- rbind(subject_training,subject_test)
 
 #Step 2) Extracts only the measurements on the mean and standard deviation for each measurement.
-  #all_set_required dim(10289,86)
+  #Only the features related to "mean" and "std" are selected. As a consecuence, the attributed not releated to "mean" or "std" are removed.
   names(all_sets)<- features[,2]
   all_sets_required<-all_sets[,grepl("std|mean", names(all_sets), ignore.case = TRUE)]
   
   #Step 3) Uses descriptive activity names to name the activities in the data set
-  #data set of all labels dim(10299,2)
- 
+ 	# The names of the activities are used to change the numeric value indicated in the experiments by the the descriptive field.
+  
   activities_label_comp<- merge(activities_labels,activities,by.x="V1", by.y = "V1",sort=F )
   
 #Step 4) Appropriately labels the data set with descriptive variable names.
+	#The subject and the activities are included with appropiate name
   final_data <-cbind(subjects, activities_label_comp[,2], all_sets_required)
   names(final_data)[1:2] <- c("subject", "activity")
   
 #Step 5) From the data set in step 4, creates a second, independent tidy 
-  #data set with the average of each variable for each activity and each subject.
+  	# - The mean is calculated with the data gruped by subject and activity and it is the final tidy_data
   tidy_data<-group_by(final_data, subject, activity) %>%summarise_each(funs(mean))
   write.table(tidy_data, "tidy_data.txt", row.name=FALSE)

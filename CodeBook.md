@@ -6,15 +6,19 @@ explained in Readme.md and obtainted with the script "run_analysis.R"
 The reference data is the proyect "Human Activity Recognition Using Smartphones Data Set" 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+The field indicated are number of column, column name, description, type and values for factor fields.																
+1	      subject	      
+		Identifier of subject who carried out the experiment
+           	Integer     
+		1-30
+                           													
 
-																									
-#column colum_name	      Description	                            Type	    Values (for factors)																					
-1	      subject	          Identifier of the subject who           Integer     1-30
-                           carried out the experiment																				
-
-2	      activity	        activity name	                          string	    WALKING					
-				                                                                      WALKING_UPSTAIRS																				                                          WALKING_DOWNSTAIRS
-				                                                                      SITTING
+2	      activity	 
+	      activity name
+	      string	    
+		WALKING  	
+			  WALKING_UPSTAIRS													                                            WALKING_DOWNSTAIRS		                                                                   
+  SITTING
 				                                                                      STANDING
 				                                                                      LAYING	
 	 																				
