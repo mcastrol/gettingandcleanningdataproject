@@ -1,4 +1,4 @@
-#CODEBOOK #Description
+#CODEBOOK -Description
 CodeBook shows the additional information about the data, variables and work that was performed to clean up the data. 
 <br>    
         
@@ -34,8 +34,27 @@ The following files are available for the train and test data. Their description
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.           
 <br><br>  
 
+#Process to get the tidy data: run_analisys.R
 
-##Description about the variables of tidy_data
+The script follows these steps: - 
+
+1) Merges the training and the test sets to create one data set.
+- The datasets of training and test, activities and subjects are joined making an union by row (rbind)
+
+2) Extracts only the measurements on the mean and standard deviation for each measurement.
+- Only the features related to "mean" and "std" are selected. As a consecuence, the attributed not releated to "mean" or "std" are removed.
+
+3) Uses descriptive activity names to name the activities in the data set
+  - The names of the activities are used to change the numeric value indicated in the experiments by the the descriptive field.
+  
+4) Appropriately labels the data set with descriptive variable names.
+  - The subject and the activities are included with appropiate name
+    
+5) From the data set in step 4, creates a second, independent tidy 
+  - The mean is calculated with the data gruped by subject and activity and it is the final tidy_data
+
+
+#Description about the variables of tidy_data
 
 This is the description of the variables ff the "tidy_data" data set, obtained from the process 
 explained in Readme.md and obtainted with the script "run_analysis.R"
